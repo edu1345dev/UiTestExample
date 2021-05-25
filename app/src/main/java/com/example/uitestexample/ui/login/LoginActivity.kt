@@ -1,6 +1,7 @@
 package com.example.uitestexample.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -16,6 +17,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.example.uitestexample.R
+import com.example.uitestexample.ui.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -58,10 +60,10 @@ class LoginActivity : AppCompatActivity() {
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
             }
-            setResult(Activity.RESULT_OK)
+//            setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-            finish()
+            startActivity(Intent(this, MainActivity::class.java))
         })
 
         username.afterTextChanged {
